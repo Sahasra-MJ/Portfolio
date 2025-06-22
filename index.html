@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/75e0ad4dd0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- home page -->
+    <div id="header">
+        <div id="container">
+            <nav>
+                <img src="Images/logo.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-xmark"onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>Web Developer</p>
+                <h1>Hi, I'm <span>Sahasra Oliyarasi</span> <br>from Kanya Kumari</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- About page -->
+     <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="Images/im.png">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>Motivated second-year engineering student with a strong passion for web development and a focus on becoming a full-stack developer. Experienced in HTML, CSS, Javascript, Python, and C++, with a completed UX Research certification from Google. Skilled in UI/UX design, with a keen eye for creating user-friendly, intuitive interfaces. Demonstrated ability to work in diverse tech environments, continuously seeking to expand knowledge through practical projects and self-improvement initiatives. Eager to contribute to the development of innovative web solutions and pursue a meaningful career in software development.</p>
+
+                    <div class="tab-title">
+                        <p class="tab-links active-link" onclick="opentab('Skills')">Skills</p>
+                        <p class="tab-links"onclick="opentab('Experience')">Experience</p>
+                        <p class="tab-links"onclick="opentab('Education')">Education</p>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="tab-contents active-tab" id="Skills">
+                        <ul>
+                            <li><span>Web development</span><br>Creating Websites</li>
+                            <li><span>UI/UX</span><br>Designing Web/App interfaces</li>
+                            <li><span>Problem Solving</span><br>Solving problems</li>
+                        </ul>
+                    </div>
+
+                    <!-- Experience -->
+
+                    <div class="tab-contents" id="Experience">
+                        <ul>
+                            <li><span>2025-Internship</span><br>Web Developer at Pinnacle Labs</li>
+                            <li><span>2024-IPT</span><br>Frontend Developer at Infosmite</li>
+                        </ul>
+                    </div>
+
+                    <!-- Education -->
+
+                    <div class="tab-contents" id="Education">
+                        <ul>
+                            <li><span>2023-2027-BE</span><br>Scored 8.6 CGPA in Francis Xavier Engineering College</li>
+                            <li><span>2023-AISSCE</span><br>Scored 87.4% in Amrita Vidyalayam</li>
+                            <li><span>2021-AISSE</span><br>Scored 93.6% in Amrita Vidyalayam</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+     </div>
+
+            <!-- Services -->
+
+    <div id="services">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Web Development</h2>
+                    <p>I provide end-to-end web development services, creating dynamic and responsive websites that deliver exceptional user experiences. With expertise in front-end and back-end development, I build functional, scalable, and optimized solutions tailored to your needs. From interactive interfaces to robust server-side functionality, I turn your vision into a fully functional, high-performance website</p>
+                    <a href="#">Learn More</a>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-crop"></i>
+                    <h2>UI/UX Design</h2>
+                    <p>I specialize in crafting visually appealing and user-friendly websites tailored to meet your unique needs. With expertise in web design, UI/UX, and front-end development, I ensure seamless functionality, responsive layouts, and engaging user experiences. Whether you need a personal portfolio, business website, or e-commerce platform, I bring your ideas to life with precision and creativity</p>
+                    <a href="#">Learn More</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio -->
+
+    <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">My Work</h1>
+            <div class="work-list">
+    <div class="work">
+        <img src="Images/img4.jpeg">
+        <div class="layer">
+            <h3>Book Store Website</h3>
+            <p>A sleek and user-friendly online book store offering easy browsing, secure checkout, and personalized suggestions.</p>
+            <a href="#"><i class="fa-solid fa-link"></i></a>
+        </div>
+    </div>
+
+    <div class="work">
+        <img src="Images/img1.jpg">
+        <div class="layer">
+            <h3>Quiz App Design</h3>
+            <p>Interactive quiz app with vibrant UI, timer-based questions, and progress tracking for better user engagement.</p>
+            <a href="#"><i class="fa-solid fa-link"></i></a>
+        </div>
+    </div>
+
+    <div class="work">
+        <img src="Images/img3.jpeg">
+        <div class="layer">
+            <h3>Face Detection App</h3>
+            <p>A real-time face detection app built using Python, OpenCV, and deep learning models. It accurately identifies human faces from live video input, with applications in surveillance, attendance tracking, and smart camera systems.</p>
+            <a href="#"><i class="fa-solid fa-link"></i></a>
+        </div>
+    </div>
+
+    <div class="work">
+        <img src="Images/img2.jpeg">
+        <div class="layer">
+            <h3>Floppy Bird Game</h3>
+            <p>A 2D arcade-style game developed in Unity using C#. Inspired by Flappy Bird, it features smooth mechanics, collision detection, scoring system, and engaging sound effects. Built for both desktop and mobile platforms.</p>
+            <a href="#"><i class="fa-solid fa-link"></i></a>
+        </div>
+    </div>
+</div>
+
+            <a href="#" class="btn">See More</a>
+        </div>
+    </div>
+
+    <!-- Contact -->
+
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+
+                <div class="contact-left">
+                   <h1 class="sub-title">Contact Me</h1>
+                   <p><i class="fa-solid fa-envelope"></i>sahasramayildevv@gmail.com</p>
+                   <div class="social-icons">
+                    <a href=""><i class="fa-brands fa-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/sahasra-oliyarasi-m-j18/"><i class="fa-brands fa-linkedin"></i></a>
+                   </div>
+                   <a href="Images/Resume.pdf"Download class="btn btn2">Download CV</a>
+                </div>
+
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>          
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright @ Sahasra.Made with <i class="fa-solid fa-heart"></i> by Sahasra Oliyarasi</p>
+        </div>
+    </div>
+
+<!-- script -->
+
+
+     <script>
+        // About..
+
+        var tablinks=document.getElementsByClassName("tab-links")
+        var tabcontents=document.getElementsByClassName("tab-contents")
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link")
+            }
+
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab")
+            }
+            event.currentTarget.classList.add("active-link")
+            document.getElementById(tabname).classList.add("active-tab")
+        }
+
+        // About ends..............
+
+        // Menu
+
+        var sidemenu=document.getElementById("sidemenu")
+
+        function openmenu(){
+            sidemenu.style.right="0";
+        }
+
+        function closemenu(){
+            sidemenu.style.right="-200px";
+        }
+
+     </script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw0OpbN-Ujn-aco90kFE8m3ud-qNkJoxhZNignKhz4rwYQU24obCws74KmeiFQqDpzh/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML=""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+</body>
+
+</html>
