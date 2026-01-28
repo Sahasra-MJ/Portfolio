@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Intro from "./components/Intro/Intro";
 import About from "./components/About/About";
 import Skill from "./components/Skills/Skill";
-import Projects from "./components/Projects/projects";
+import Projects from "./components/Projects/Projects";
 import Experience from "./components/Experience/Experience";
 import Contact from "./components/Contact/Contact";
 import "./App.css";
