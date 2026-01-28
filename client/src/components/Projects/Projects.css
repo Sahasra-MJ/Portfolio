@@ -1,0 +1,119 @@
+/* Global variables already set in App.css
+:root {
+  --page-bg: #fdfdfd;
+  --page-text: #333;
+  --accent: #ff6600;
+}
+
+[data-theme="dark"] {
+  --page-bg: #1a1a1a;
+  --page-text: #f1f1f1;
+  --accent: #ff8c42;
+}
+*/
+
+/* Section Styling */
+.projects-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: var(--page-bg);
+  color: var(--page-text);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Main Heading */
+.projects-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: var(--accent);
+}
+
+/* Section Description */
+.projects-description {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  color: #707070;
+  transition: color 0.3s;
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual Project Card */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* keep top spacing natural */
+  background: var(--page-bg);
+  border: 1px solid #ddd;
+  padding: 15px; /* slightly smaller padding */
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+  text-decoration: none;
+  color: var(--page-text);
+}
+
+/* Hover effect */
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 18px rgba(0,0,0,0.12);
+}
+
+/* Project Title */
+.project-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px; /* slightly smaller spacing */
+  color: var(--accent);
+}
+
+/* Project Description */
+.project-card p {
+  font-size: 0.95rem;
+  color: var(--page-text);
+  margin-bottom: 12px; /* spacing before tags */
+}
+
+/* Tags pinned at bottom */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto; /* pushes tags to bottom */
+}
+
+.tags span {
+  background: var(--accent);
+  color: var(--page-bg);
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Sub-headings */
+.sub-heading {
+  margin: 50px 0 20px;
+  font-size: 1.5rem;
+  color: var(--page-text);
+}
+
+/* Upcoming Projects */
+.coming-soon {
+  opacity: 0.8;
+  border: 2px dashed var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}

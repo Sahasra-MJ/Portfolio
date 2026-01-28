@@ -1,0 +1,109 @@
+.intro-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--page-bg);
+  color: var(--page-text);
+  transition: background 0.3s, color 0.3s;
+  padding: 2rem;
+}
+
+.intro-container {
+  display: flex;
+  align-items: center; /* vertically center content */
+  gap: 3rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.intro-image img {
+  width: 250px; /* slightly larger */
+  max-width: 100%; /* responsive */
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* dark subtle shadow */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.intro-image img:hover {
+  transform: translateY(-5px); /* lifts slightly */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3); /* stronger shadow on hover */
+}
+
+.intro-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.intro-content h1 span {
+  color: var(--accent);
+}
+
+.intro-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.intro-content p span {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.intro-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Buttons base styles */
+.btn, .btn-outline {
+  padding: 0.7rem 1.8rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Filled button (Download CV) */
+.btn {
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #38b2ac; /* slightly darker accent */
+  transform: translateY(-3px); /* lift effect */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Outline button (Contact Me) */
+.btn-outline {
+  background: none;
+  color: var(--page-text);
+  border: 2px solid var(--accent);
+}
+
+.btn-outline:hover {
+  background-color: var(--accent);
+  color: #fff;
+  transform: translateY(-3px); /* lift effect */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+  .intro-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro-image img {
+    width: 250px;
+    margin-bottom: 1.5rem;
+  }
+}

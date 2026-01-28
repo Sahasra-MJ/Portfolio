@@ -1,0 +1,122 @@
+.skills-section {
+  padding: 4rem 2rem;
+  background: var(--page-bg);
+  color: var(--page-text);
+  text-align: center;
+  transition: background 0.3s, color 0.3s;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.skills-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.skills-description {
+  font-size: 1rem;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #707070;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+  gap: 2rem;
+  justify-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skill-card {
+  background: var(--accent);
+  color: #fff;
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  text-decoration: none; /* remove underline for links */
+}
+
+.skill-card i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Updated icon colors */
+.html { color: #E44D26; }
+.css { color: #1572B6; }
+.c { color: #373738; }
+.js { color: #F7DF1E; }
+.react { color: #004457; }
+.git { color: #F05032; }
+.github { color: #181717; }
+.figma { color: #F24E1E; }
+
+.skill-card p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+  color: #fff;
+}
+
+/* Hover effect */
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Custom icons for Skillrack, LeetCode, HackerRank */
+.custom-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.5rem;
+  object-fit: contain;
+  border-radius: 6px;  /* optional: rounded look */
+  background: #fff;    /* white background to make logos pop */
+  padding: 5px;
+}
+
+/* Optional brand-themed backgrounds */
+.skillrack { background: #0056a6; }   /* Skillrack blue */
+.leetcode { background: #f89f1b; }   /* LeetCode orange */
+.hackerrank { background: #2EC866; } /* HackerRank green */
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .skill-card {
+    width: 100px;
+    height: 100px;
+  }
+  .skill-card i {
+    font-size: 1.7rem;
+  }
+  .skill-card p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,124 @@
+:root {
+  /* Light Mode */
+  --page-bg: #ffffff;        /* Page background */
+  --page-text: #000000;      /* Page text */
+  --navbar-bg: #ffffff;      /* Navbar background */
+  --navbar-text: #111111;    /* Navbar text */
+  --navbar-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Light mode shadow */
+  --accent: #4fd1c5;         /* Accent color */
+}
+
+[data-theme="dark"] {
+  /* Dark Mode */
+  --page-bg: #111111;        /* Page background */
+  --page-text: #ffffff;      /* Page text */
+  --navbar-bg: #000000;      /* Navbar background */
+  --navbar-text: #ffffff;    /* Navbar text */
+  --navbar-shadow: 0 4px 12px rgba(255, 255, 255, 0.1); /* Light grey shadow for navbar */
+  --accent: #4fd1c5;         /* Accent color */
+}
+
+/* General Styles */
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--page-text);
+  font-family: 'Segoe UI', sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+.page-section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--page-bg);
+  color: var(--page-text);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Navbar */
+.glass-navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 18px;
+  background: var(--navbar-bg);
+  box-shadow: var(--navbar-shadow);
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--navbar-text);
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: var(--navbar-text);
+  transition: color 0.3s, transform 0.2s;
+  position: relative;
+}
+
+/* Hover effect */
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* Animated underline on hover */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Active link */
+.nav-links a.active {
+  color: var(--accent);
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  color: var(--navbar-text);
+  transition: color 0.3s;
+}

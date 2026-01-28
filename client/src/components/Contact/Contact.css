@@ -1,0 +1,159 @@
+/* Contact Section - Theme Consistent and Centered */
+
+/* Wrapper */
+.contact-wrapper {
+  display: flex;
+  justify-content: center;      
+  align-items: center;          
+  gap: 20px;                    
+  padding: 40px;
+  flex-wrap: wrap;
+  min-height: calc(100vh - 80px);
+  background: var(--page-bg);    /* page background */
+  color: var(--page-text);       /* page text */
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Contact Card */
+.contact-card {
+  flex: 1 1 350px;    
+  max-width: 450px;   
+  background: var(--card-color);  /* card color */
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background 0.3s, color 0.3s;
+  min-height: 450px;
+  box-sizing: border-box;
+}
+
+/* Subtitle / Description */
+.subtitle {
+  color: var(--subtext-color);
+  margin-bottom: 20px;
+}
+
+/* Contact Info */
+.contact-info {
+  margin-bottom: 20px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.info-item .icon {
+  font-size: 1.5rem;
+  margin-right: 12px;
+  color: var(--accent);   /* accent color */
+}
+
+.info-item h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--page-text);
+}
+
+.info-item p {
+  margin: 2px 0 0;
+  color: var(--subtext-color);
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 18px;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+.social-icons a {
+  font-size: 1.5rem;
+  color: var(--subtext-color);
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: var(--accent);
+}
+
+/* Contact Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--page-text);
+}
+
+input, textarea {
+  background: var(--input-bg);
+  border: 1px solid var(--subtext-color);
+  outline: none;
+  padding: 10px;
+  border-radius: 8px;
+  color: var(--page-text);
+  resize: none;
+  font-size: 0.9rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+textarea {
+  height: 90px;
+}
+
+/* Submit Button - Green */
+/* Submit Button - Smaller width, taller height */
+.submit-btn {
+  background: var(--accent);
+  color: var(--button-text);
+  padding: 12px 20px;   /* vertical padding larger, horizontal smaller */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  width: 170px;         /* fixed smaller width */
+  display: block;
+  margin: 10px auto 0;  /* center the button under the form */
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+}
+
+
+/* Feedback Link */
+.view-feedback {
+  margin-top: 10px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.view-feedback:hover {
+  text-decoration: underline;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .contact-card {
+    max-width: 90%;
+    min-height: auto;
+  }
+}
