@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = ({ darkMode, setDarkMode }) => {
-  const location = useLocation(); // get current route path
+  const location = useLocation();
+  const [open, setOpen] = useState(false);
+
   const links = [
     { path: "/", label: "Home" },
     { path: "/about", label: "About" },
@@ -16,25 +18,41 @@ const Navbar = ({ darkMode, setDarkMode }) => {
   return (
     <nav className="glass-navbar">
       <div className="logo">Sahasra</div>
-      <ul className="nav-links">
+
+      <ul className={`nav-links ${open ? "open" : ""}`}>
         {links.map((link) => (
           <li key={link.path}>
             <Link
               to={link.path}
               className={location.pathname === link.path ? "active" : ""}
+              onClick={() => setOpen(false)}
             >
               {link.label}
             </Link>
           </li>
         ))}
       </ul>
-      <button
-        className="dark-mode-toggle"
-        onClick={() => setDarkMode(!darkMode)}
-        title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-      >
-        {darkMode ? "🌞" : "🌙"}
-      </button>
+
+      {/* Right controls */}
+      <div className="nav-actions">
+        <button
+          className="dark-mode-toggle"
+          onClick={() => setDarkMode(!darkMode)}
+        >
+          {darkMode ? "🌞" : "🌙"}
+        </button>
+
+        {/* Hamburger */}
+        {/* Hamburger */}
+<button
+  className={`hamburger ${open ? "open" : ""}`}
+  onClick={() => setOpen(!open)}
+  aria-label="Toggle Menu"
+>
+  {open ? "✕" : "☰"}
+</button>
+
+      </div>
     </nav>
   );
 };

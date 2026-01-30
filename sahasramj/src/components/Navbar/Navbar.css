@@ -1,24 +1,23 @@
 :root {
   /* Light Mode */
-  --page-bg: #ffffff;        /* Page background */
-  --page-text: #000000;      /* Page text */
-  --navbar-bg: #ffffff;      /* Navbar background */
-  --navbar-text: #111111;    /* Navbar text */
-  --navbar-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Light mode shadow */
-  --accent: #4fd1c5;         /* Accent color */
+  --page-bg: #ffffff;
+  --page-text: #000000;
+  --navbar-bg: #ffffff;
+  --navbar-text: #111111;
+  --navbar-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --accent: #4fd1c5;
 }
 
 [data-theme="dark"] {
   /* Dark Mode */
-  --page-bg: #111111;        /* Page background */
-  --page-text: #ffffff;      /* Page text */
-  --navbar-bg: #000000;      /* Navbar background */
-  --navbar-text: #ffffff;    /* Navbar text */
-  --navbar-shadow: 0 4px 12px rgba(255, 255, 255, 0.1); /* Light grey shadow for navbar */
-  --accent: #4fd1c5;         /* Accent color */
+  --page-bg: #111111;
+  --page-text: #ffffff;
+  --navbar-bg: #000000;
+  --navbar-text: #ffffff;
+  --navbar-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
 }
 
-/* General Styles */
+/* General */
 body {
   margin: 0;
   background: var(--page-bg);
@@ -32,9 +31,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--page-bg);
-  color: var(--page-text);
-  transition: background 0.3s, color 0.3s;
 }
 
 /* Navbar */
@@ -51,8 +47,6 @@ body {
   border-radius: 18px;
   background: var(--navbar-bg);
   box-shadow: var(--navbar-shadow);
-  border: 1px solid rgba(0,0,0,0.05);
-  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
   z-index: 1000;
 }
 
@@ -60,57 +54,32 @@ body {
   font-size: 1.6rem;
   font-weight: bold;
   color: var(--navbar-text);
-  letter-spacing: 1px;
 }
 
-.logo span {
-  color: var(--accent);
-}
-
+/* Links */
 .nav-links {
   display: flex;
   gap: 2rem;
   list-style: none;
-  position: relative;
 }
 
 .nav-links a {
   text-decoration: none;
   font-size: 1rem;
   color: var(--navbar-text);
-  transition: color 0.3s, transform 0.2s;
-  position: relative;
+  transition: color 0.3s;
 }
 
-/* Hover effect */
-.nav-links a:hover {
-  color: var(--accent);
-}
-
-/* Animated underline on hover */
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: var(--accent);
-  border-radius: 1px;
-  transition: width 0.3s;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-/* Active link */
+.nav-links a:hover,
 .nav-links a.active {
   color: var(--accent);
 }
 
-.nav-links a.active::after {
-  width: 100%;
+/* Actions */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 }
 
 .dark-mode-toggle {
@@ -118,7 +87,73 @@ body {
   border: none;
   font-size: 1.3rem;
   cursor: pointer;
-  margin-left: 1rem;
   color: var(--navbar-text);
-  transition: color 0.3s;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--navbar-text);
+  transition: transform 0.35s ease;
+}
+
+.hamburger.open {
+  transform: rotate(90deg);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    right: 0;
+    background: var(--navbar-bg);
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.5rem 0;
+
+    opacity: 0;
+    transform: translateY(-12px);
+    pointer-events: none;
+
+    border-radius: 0 0 18px 18px;
+    box-shadow: var(--navbar-shadow);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Stagger animation */
+  .nav-links li {
+    opacity: 0;
+    transform: translateY(-6px);
+    animation: navFade 0.4s ease forwards;
+  }
+
+  .nav-links.open li:nth-child(1) { animation-delay: 0.05s; }
+  .nav-links.open li:nth-child(2) { animation-delay: 0.1s; }
+  .nav-links.open li:nth-child(3) { animation-delay: 0.15s; }
+  .nav-links.open li:nth-child(4) { animation-delay: 0.2s; }
+  .nav-links.open li:nth-child(5) { animation-delay: 0.25s; }
+}
+
+@keyframes navFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
