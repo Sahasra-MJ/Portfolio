@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./Experience.css"; // reuse your existing CSS
+import { link } from "framer-motion/client";
 
 const experienceData = [
   {
@@ -21,22 +22,23 @@ const experienceData = [
 
 const certificatesData = [
   {
+    title: "Foundations of UX Design",
+    issuer: "Google Coursera",
+    date: "2024",
+    img: "/certificates/google.jpeg",
+    link: "https://www.coursera.org/account/accomplishments/certificate/3Z5K9Z6L2V8C",
+  },
+  {
     title: "JavaScript Fundamentals",
     issuer: "GreatStack",
     date: "2025",
     img: "/certificates/greatstack.jpeg",
   },
   {
-    title: "Git, GitHub and Markdown Crash Course",
-    issuer: "Udemy",
+    title: "Core Java Workshop",
+    issuer: "Codeio",
     date: "2025",
-    img: "/certificates/udemy.jpeg",
-  },
-  {
-    title: "Foundations of UX Design",
-    issuer: "Google Coursera",
-    date: "2024",
-    img: "/certificates/google.jpeg",
+    img: "/certificates/Java.jpeg",
   },
 ];
 

@@ -53,6 +53,13 @@ const Projects = () => {
       link: "https://github.com/Sahasra-MJ/Random-Password-Generator",
     },
     {
+      title: "CodeArena - Competitive Programming Platform",
+      description:
+        "A competitive programming platform for coding challenges and contests.",
+      tech: ["React", "JavaScript", "json"],
+      link: "https://github.com/Sahasra-MJ/CodeArena",
+    },
+    {
       title: "Flappy Bird",
       description:
         "A fun 2D Flappy Bird game built using Unity and C#. Players navigate the bird through obstacles while avoiding collisions.",
@@ -78,10 +85,10 @@ const Projects = () => {
 
   const upcoming = [
     {
-      title: "Scamlens: A fake internship detection web page",
+      title: "Scamlens: A fake internship detection web page (Group Project)",
       description:
         "An upcoming React.js project for detecting fake internships.",
-      tech: ["React", "JavaScript"],
+      tech: ["React", "JavaScript","CSS","node.js","sql"],
       link: "#",
     },
   ];
