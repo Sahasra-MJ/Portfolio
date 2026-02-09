@@ -1,17 +1,42 @@
+/* About Section */
 .about-section {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 4rem 2rem;
+  padding: 6rem 2rem 4rem; /* increased top padding for space from navbar */
   background: var(--page-bg);
   color: var(--page-text);
   transition: background 0.3s, color 0.3s;
+  overflow: hidden;
+  animation: sectionEnter 0.8s ease-out;
 }
 
+@keyframes sectionEnter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Rest remains same as before ... */
 .about-container {
   max-width: 900px;
   width: 100%;
   text-align: left;
+  animation: containerSlideIn 0.8s ease-out;
+}
+
+@keyframes containerSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Headings */
@@ -19,6 +44,48 @@
   font-size: 2.5rem;
   margin-bottom: 1rem;
   color: var(--accent);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.about-section h2.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Typing + 3D Heading */
+/* deprecated typing style neutralized — use static heading */
+.typing-3d {
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+  perspective: 800px;
+  position: relative;
+  display: inline-block;
+}
+
+.typing-3d span {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 700;
+  overflow: visible;
+  white-space: normal;
+  border-right: none;
+  width: auto;
+  animation: none;
+}
+
+/* Typing animation */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 8ch; } /* length of "About Me" */
+}
+
+/* Cursor blink */
+@keyframes blink {
+  50% { border-color: transparent; }
 }
 
 /* About Me paragraph */
@@ -26,11 +93,36 @@
   font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s;
+}
+
+.about-section p.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .about-section p span {
   color: var(--accent);
   font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.about-section p span::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.about-section p:hover span::after {
+  width: 100%;
 }
 
 /* Education Timeline */
@@ -44,11 +136,42 @@
   position: relative;
   padding-left: 2rem;
   border-left: 3px solid var(--accent);
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Stagger animation for each timeline item */
+.timeline-item:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.timeline-item:nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+.timeline-item:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.timeline-item:hover {
+  transform: translateX(8px);
 }
 
 .timeline-item h3 {
   font-size: 1.5rem;
   margin-bottom: 0.3rem;
+  transition: color 0.3s ease;
+}
+
+.timeline-item:hover h3 {
+  color: #fff;
+  text-shadow: 0 0 10px var(--accent);
 }
 
 .timeline-item span {
@@ -56,6 +179,11 @@
   color: var(--accent);
   display: block;
   margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.timeline-item:hover span {
+  color: #fff;
 }
 
 .timeline-item p span {
@@ -67,6 +195,11 @@
   font-size: 1.1rem;
   line-height: 1.6;
   margin: 0;
+  transition: color 0.3s ease;
+}
+
+.timeline-item:hover p {
+  color: #fff;
 }
 
 .timeline-item::before {
@@ -78,16 +211,30 @@
   height: 16px;
   background-color: var(--accent);
   border-radius: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover::before {
+  transform: scale(1.3);
+  box-shadow: 0 0 12px var(--accent);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .about-section {
-    padding: 3rem 1rem;
+    padding: 5rem 1rem 3rem;
   }
 
   .about-section h2 {
     font-size: 2rem;
+  }
+
+  .typing-3d {
+    font-size: 2rem;
+  }
+
+  .typing-3d span {
+    animation: none;
   }
 
   .timeline-item h3 {
@@ -96,5 +243,55 @@
 
   .timeline-item p {
     font-size: 1rem;
+  }
+
+  .timeline-item:hover {
+    transform: translateX(4px);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding: 4rem 1rem 2rem;
+  }
+
+  .about-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .typing-3d {
+    font-size: 1.8rem;
+  }
+
+  .about-section p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .timeline-item {
+    padding-left: 1.5rem;
+  }
+
+  .timeline-item h3 {
+    font-size: 1.2rem;
+  }
+
+  .timeline-item p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .timeline-item span {
+    font-size: 0.9rem;
+  }
+
+  .timeline-item:hover {
+    transform: translateX(2px);
+  }
+
+  .timeline-item::before {
+    width: 14px;
+    height: 14px;
+    left: -7px;
   }
 }

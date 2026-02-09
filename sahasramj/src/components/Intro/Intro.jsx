@@ -1,31 +1,37 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Intro.css";
 
 const Intro = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const h1 = document.querySelector(".intro-content h1");
-      h1?.classList.add("finished");
-    }, 4200); // cursor stops after typing
+  const fullText = "Hello, I'm Sahasra Oliyarasi MJ";
+  const [text, setText] = useState("");
+  const [index, setIndex] = useState(0);
 
-    return () => clearTimeout(timer);
-  }, []);
+  // Human typing effect
+  useEffect(() => {
+    if (index < fullText.length) {
+      const speed = 90 + Math.random() * 120; // irregular speed
+      const timer = setTimeout(() => {
+        setText((prev) => prev + fullText[index]);
+        setIndex((prev) => prev + 1);
+      }, speed);
+      return () => clearTimeout(timer);
+    }
+  }, [index]);
 
   return (
     <section id="home" className="intro-section page-section">
       <div className="intro-container">
-        {/* Left: Image */}
         <div className="intro-image">
           <img src="/Intro.jpeg" alt="Intro" />
         </div>
 
-        {/* Right: Content */}
         <div className="intro-content">
-          <h1>
-            Hello, I'm <span>Sahasra Oliyarasi MJ</span>
+          <h1 className="intro-typing">
+            <span className="intro-js-typing">{text}</span>
+            <span className="cursor"></span>
           </h1>
 
           <p>
@@ -34,7 +40,6 @@ const Intro = () => {
             interactive and beautiful web experiences.
           </p>
 
-          {/* Buttons */}
           <div className="intro-buttons">
             <a href="/Resume.pdf" className="btn" download>
               Download CV

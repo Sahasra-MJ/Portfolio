@@ -1,5 +1,5 @@
 .experience-section {
-  padding: 60px 20px;
+  padding: 100px 20px 60px; /* extra top space so heading sits below navbar */
   text-align: center;
   background: var(--page-bg);
   color: var(--page-text);
@@ -8,8 +8,16 @@
 
 .experience-section h2 {
   font-size: 2.5rem;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
   color: var(--accent);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.experience-section h2.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .experience-grid {
@@ -18,20 +26,49 @@
   gap: 20px;
   max-width: 1000px;
   margin: 0 auto;
+  perspective: 900px;
 }
 
 .experience-card {
   background: var(--page-bg);
-  border: 1px solid #ddd;
+  border: 1px solid #eee;
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+  box-shadow: 0 8px 22px rgba(16,24,40,0.04);
+  transition: transform 0.36s cubic-bezier(.2,.9,.3,1), box-shadow 0.36s ease, background 0.3s;
+  transform-origin: center;
+  opacity: 0;
+  transform: translateY(18px) scale(0.995);
+  animation: cardFadeUp 0.64s ease-out forwards;
+  position: relative;
+  overflow: hidden;
 }
 
+.experience-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(600px at center, rgba(255,102,0,0.06), transparent 80%);
+  opacity: 0;
+  transition: opacity 0.36s ease;
+  pointer-events: none;
+  border-radius: 12px;
+}
+
+.experience-card.visible { opacity: 1; transform: translateY(0) scale(1); }
+
 .experience-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  transform: translateY(-10px) rotateX(6deg) scale(1.02);
+  box-shadow: 0 24px 52px rgba(16,24,40,0.1), 0 0 32px rgba(255,102,0,0.08);
+}
+
+.experience-card:hover::before {
+  opacity: 1;
+}
+
+.experience-card:focus-visible {
+  outline: 3px solid rgba(255,102,0,0.08);
+  outline-offset: 6px;
 }
 
 .experience-card h3 {
@@ -51,9 +88,44 @@
   color: #707070;
 }
 
-/* Responsive */
+/* stagger delays */
+.experience-grid .experience-card:nth-child(1) { animation-delay: 0.08s; }
+.experience-grid .experience-card:nth-child(2) { animation-delay: 0.14s; }
+.experience-grid .experience-card:nth-child(3) { animation-delay: 0.2s; }
+.experience-grid .experience-card:nth-child(4) { animation-delay: 0.26s; }
+.experience-grid .experience-card:nth-child(5) { animation-delay: 0.32s; }
+.experience-grid .experience-card:nth-child(6) { animation-delay: 0.38s; }
+
+/* certificate image behavior */
+.experience-card img {
+  border-radius: 8px;
+  transition: transform 0.4s ease, filter 0.3s ease;
+  transform-origin: center;
+}
+
+.experience-card:hover img {
+  transform: scale(1.04) translateY(-4px);
+  filter: saturate(1.06) contrast(1.02);
+}
+
+@keyframes cardFadeUp {
+  from { opacity: 0; transform: translateY(18px) scale(0.995); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Responsive adjustments for spacing */
+@media (max-width: 1200px) {
+  .experience-section { padding-top: 84px; }
+  .experience-section h2 { font-size: 2.2rem; }
+}
+
 @media (max-width: 768px) {
-  .experience-grid {
-    grid-template-columns: 1fr;
-  }
+  .experience-section { padding: 72px 16px 36px; }
+  .experience-grid { grid-template-columns: 1fr; gap: 16px; }
+  .experience-section h2 { font-size: 1.9rem; }
+}
+
+@media (max-width: 480px) {
+  .experience-section { padding: 56px 12px 28px; }
+  .experience-section h2 { font-size: 1.6rem; margin-bottom: 14px; }
 }

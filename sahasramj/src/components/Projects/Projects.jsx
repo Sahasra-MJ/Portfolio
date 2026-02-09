@@ -78,9 +78,9 @@ const Projects = () => {
 
   const upcoming = [
     {
-      title: "Coding Challenge Practice Site",
+      title: "Scamlens: A fake internship detection web page",
       description:
-        "An upcoming React.js project for coding challenges and practice.",
+        "An upcoming React.js project for detecting fake internships.",
       tech: ["React", "JavaScript"],
       link: "#",
     },
@@ -88,7 +88,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="projects-section">
-      <h2>Projects</h2>
+      <h2 className="projects-heading">Projects</h2>
       <p className="projects-description">
         A collection of my development and design projects.
       </p>

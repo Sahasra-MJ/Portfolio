@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Experience.css"; // reuse your existing CSS
 
 const experienceData = [
@@ -41,13 +41,31 @@ const certificatesData = [
 ];
 
 const Experience = () => {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      },
+      { threshold: 0.18 }
+    );
+
+    const elems = document.querySelectorAll(
+      "#experience h2, .experience-grid .experience-card"
+    );
+    elems.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="experience" className="experience-section">
       {/* Experience Section */}
-      <h2>Experience</h2>
+      <h2 className="section-heading">Experience</h2>
       <div className="experience-grid">
         {experienceData.map((exp, index) => (
-          <div key={index} className="experience-card">
+          <div key={index} className="experience-card" tabIndex="0">
             <h3>{exp.company}</h3>
             <p>{exp.role}</p>
             <span>{exp.duration}</span>
@@ -56,7 +74,7 @@ const Experience = () => {
       </div>
 
       {/* Certificates Section */}
-      <h2 style={{ marginTop: "50px" }}>Certificates</h2>
+      <h2 className="section-heading" style={{ marginTop: "50px" }}>Certificates</h2>
       <div className="experience-grid">
         {certificatesData.map((cert, index) => (
           <a
