@@ -1,4 +1,5 @@
 {
-  "buildCommand": "cd sahasramj && npm install && npx vite build",
-  "outputDirectory": "sahasramj/dist"
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite"
 }
