@@ -1,4 +1,0 @@
-{
-  "buildCommand": "cd sahasramj && npm install && npx vite build",
-  "outputDirectory": "sahasramj/dist"
-}
