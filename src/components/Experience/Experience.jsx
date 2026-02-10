@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./Experience.css"; // reuse your existing CSS
-import { link } from "framer-motion/client";
+import { motion } from "framer-motion";
+
 
 const experienceData = [
   {
