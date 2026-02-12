@@ -38,14 +38,14 @@ const About = () => {
         <h2>My Education</h2>
         <div className="education-timeline">
           <div className="timeline-item">
-            <h3>SSLC</h3>
+            <h3>AISSE</h3>
             <span>Amrita Vidyalayam, Kanyakumari, 2021</span>
             <p>
               Completed secondary school with a score of 93.6%
             </p>
           </div>
           <div className="timeline-item">
-            <h3>HSC</h3>
+            <h3>AISSCE</h3>
             <span>Amrita Vidyalayam, Kanyakumari, 2023</span>
             <p>
               Successfully completed higher secondary studies with a score of 87.4%
